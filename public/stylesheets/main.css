@@ -1,0 +1,95 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+  padding-top: 100px;
+  padding-bottom: 10px;
+  color: #5a5a5a;
+}
+
+img {
+  width: 115px;
+  height: 100px;
+  margin-bottom: 5px;
+}
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper .container {
+  padding-left: 0;
+  padding-right: 0;
+}
+.navbar-wrapper .navbar {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* CUSTOMIZE THE FOOTER
+-------------------------------------------------- */
+footer > p {
+  padding: 15px;
+}
+
+/* CUSTOMIZE THE ROW
+-------------------------------------------------- */
+.row {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.container {
+  padding-left: 0;
+  padding-right: 0;
+}
+.display{
+  display: inline-block;
+}
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 20px;
+  }
+  .navbar-wrapper .container {
+    padding-left:  15px;
+    padding-right: 15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-left:  0;
+    padding-right: 0;
+  }
+
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+
+}
+
+@media (max-width: 580px){
+  .display {
+    display:block;
+  }
+}
