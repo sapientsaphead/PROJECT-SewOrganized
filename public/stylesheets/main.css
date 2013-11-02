@@ -58,9 +58,14 @@ footer > p {
 .container {
   padding-left: 0;
   padding-right: 0;
+  text-align: center;
 }
 .display{
   display: inline-block;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 50px;
+
 }
 
 /* RESPONSIVE CSS
@@ -79,6 +84,9 @@ footer > p {
   .navbar-wrapper .navbar {
     padding-left:  0;
     padding-right: 0;
+  }
+  .navbar-nav {
+    float:right;
   }
 
   /* The navbar becomes detached from the top, so we round the corners */
