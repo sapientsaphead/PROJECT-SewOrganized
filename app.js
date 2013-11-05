@@ -34,8 +34,20 @@ app.get('/', function(req, res){
 	res.render('index');
 });
 
-app.post('/profile', function(req, res){
+app.get('/main', function(req, res){
+	res.render('main');
+});
+
+app.get('/profile', function(req, res){
 	res.render('profile');
+});
+
+app.get('/patterns', function(req, res){
+	res.render('patterns');
+});
+
+app.get('/stash', function(req, res){
+	res.render('stash');
 });
 
 http.createServer(app).listen(app.get('port'), function(){
