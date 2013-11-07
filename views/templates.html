@@ -1,0 +1,23 @@
+<script id="search-results-template" type="text/x-handlebars-template">
+	
+		<div class="entry">
+			{{#if query}}
+				<h2>{{query}}</h2>
+				<div class="body">
+					{{{desc}}}
+				</div>
+			{{/if}}
+			{{#if queryArray}}
+				<h2>{{queryTerm}}</h2>	
+				<div class="body">
+					{{#each queryArray}}
+						<li>{{this}}</li>
+					{{/each}}
+				</div>
+			{{/if}}
+
+		</div>
+
+
+
+</script>

@@ -2,29 +2,35 @@ extends layout
 
 block content
 
-	<!-- Example row of columns -->
+	- var allCaps = function(str){
+	-	return str.toUpperCase();
+	- }
+
+	- var capitalize = function(str){
+	-	return str.charAt(0).toUpperCase() + str.slice(1);
+	-}
 
 	div.row
 		div.container
 			div.display.col-lg-4
 				div.username
-					h2 Unicorn
+					h2 #{capitalize(user.username)}
 				div.profileImage
-					img(src='/images/unicorn.jpg')
+					img(src='/images/#{user.username}.jpg')
 			div.display.col-lg-4
 				div.name
-					h3 Jane Smith
+					h3 #{capitalize(user.fname)} #{capitalize(user.lname)}
 				div.city
 					h4 
 						span.title City 
-						| Boulder
+						| #{capitalize(user.city)}
 				div.state
 					h4 
 						span.title State 
-						| CO
+						| #{allCaps(user.state)}
 				div.zipcode
 					h4 
 						span.title Zip Code 
-						|80302
+						| #{user.zipcode}
 					
 			div.display.col-lg-4

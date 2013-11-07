@@ -8,6 +8,8 @@ var routes = require('./routes');
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
+var mongoose = require('mongoose');
+
 
 var app = express();
 
@@ -27,8 +29,16 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-// app.get('/', routes.index);
-// app.get('/users', user.list);
+
+//connect to MongoDB via Mongoose
+mongoose.connect('mongodb://localhost/seworganized');
+// Mongoose 
+var User = mongoose.model('User', { username: String, fname: String, lname: String, city: String, state: String, zipcode: String});
+
+var Pattern = mongoose.model('Pattern', {username: String, company: String, name: String, id: String, url: String, size: String, imageUrl: String});
+
+
+// Routes
 
 app.get('/', function(req, res){
 	res.render('index');
@@ -38,12 +48,70 @@ app.get('/main', function(req, res){
 	res.render('main');
 });
 
-app.get('/profile', function(req, res){
-	res.render('profile');
+app.get('/dummyuser', function(req, res){
+	// create dummy user
+	var dummy = new User({
+		username: 'unicorn',
+		fname: 'jane',
+		lname: 'smith',
+		city: 'boulder',
+		state: 'co',
+		zipcode: '80302'
+	});
+	dummy.save(function(){
+		//just to stop the request 
+		//(put it inside here to not send response until the save is done)
+		res.send(true);
+	// app.get('/', routes.index);
+	// app.get('/users', user.list);
+	});
+});
+
+app.post('/addpattern', function(req, res){
+	var pattern = req.body;
+
+	var newPattern = new Pattern({
+		username: 'unicorn',
+		company: pattern.username,
+		name: pattern.name,
+		id: pattern.id,
+		url: pattern.url,
+		size: pattern.size,
+		imageUrl: pattern.imageUrl
+	});
+	newPattern.save(function(err){
+		if(err) {
+			res.send(500, 'Error encountered attempting to save new pattern to database.')
+		}
+		else {
+			res.send('Success!')
+		}
+	});
+});
+
+
+
+app.get('/profile/:username', function(req, res){
+	var username = req.params.username;
+	var applicant = User.findOne({username: username}, function (err, user) {
+		if (user){
+			res.render('profile', {user: user});
+		}
+		else {
+			res.send('The username you entered does not exist.');
+		}
+	});
 });
 
 app.get('/patterns', function(req, res){
-	res.render('patterns');
+	//get patterns from database
+
+	Pattern.find({}, function(err, patterns){
+		console.log('error', err, 'patterns', patterns);
+		
+		res.render('patterns', {patterns: patterns});
+	});
+	
 });
 
 app.get('/stash', function(req, res){

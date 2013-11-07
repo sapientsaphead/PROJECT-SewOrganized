@@ -5,11 +5,21 @@ block content
 	<!-- Example row of columns -->
 
 	div.row
-		div.container
-			div.addPattern.display.col-md-4
-				a
-					img.addPatternImg(src='/images/greypattern.jpg') 
-					p.addPattern Add a Pattern
-			div.display.col-md-4
-			div.display.col-md-4
+		div.patterns
+			div.addPattern.display
+				button.addPatternButton.btn.btn-primary
+					a.addPatternLink Add a Pattern
 
+			//- div.allPatterns.display
+			//- 	for pattern in patterns
+			//- 		div.pattern
+			//- 			img.pattern-image(src='#{pattern.imageurl}')
+			//- 			div.pattern-info
+			//- 				ul.list-unstyled
+			//- 					li Company: #{pattern.company}
+			//- 					li Pattern Name: pattern.name 
+			//- 					li Pattern ID: pattern.id
+			//- 					li Size: pattern.size
+
+			div.allPatterns
+				include templates.html
