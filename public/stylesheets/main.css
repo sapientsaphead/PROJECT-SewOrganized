@@ -24,8 +24,6 @@ img {
 img:hover {
   border-color: #66afe9;
   outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 15px rgba(51,0,102,0.9);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 15px rgba(51,0,102,0.9);
 }
 .display {
   text-align: left;
@@ -145,11 +143,11 @@ footer > p {
     height: 65px;
   }
 }
+
+/* PATTERNS STYLING
+-------------------------------------------------- */
 div.patterns {
-  display: inline-block;
-}
-div.addPatterns{
-  display: inline-block;
+  display: block;
 }
 div.patternForm {
   display: inline-block;
@@ -158,6 +156,29 @@ div.patternForm {
 div.addPattern {
   position: relative;
 }
+div.allPatterns {
+  text-align: center;
+}
+.pattern-image {
+  display: block;
+}
+.pattern-item {
+  font-size: 12px;
+}
+img.pattern-image-thumbnail {
+  width: 115px;
+  border: 1px solid grey;
+}
+a.addPatternLink {
+  color: white;
+}
+div.pattern {
+  width: 150px;
+  text-align: center;
+  float: left;
+  margin: 8px;
+}
+/* Patterns form styling */
 .form-field-group {
   text-align: right;
 }
@@ -183,6 +204,23 @@ div.addPattern {
 .option {
   text-align: center;
 }
-a {
-  color: white;
+/* Update modal style when screen is smaller*/
+@media (max-width: 768px) {
+  body .modal {
+    min-width: 495px;
+  }
 }
+@media (max-width: 480px) {
+  body .modal {
+    min-width: 400px;
+  }
+  .form-field {
+    width: 210px;
+  }
+  .input-label {
+    font-size: 12px;
+  }
+}
+
+
+

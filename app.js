@@ -35,7 +35,7 @@ mongoose.connect('mongodb://localhost/seworganized');
 // Mongoose 
 var User = mongoose.model('User', { username: String, fname: String, lname: String, city: String, state: String, zipcode: String});
 
-var Pattern = mongoose.model('Pattern', {username: String, company: String, name: String, id: String, url: String, size: String, imageUrl: String});
+var Pattern = mongoose.model('Pattern', {username: String, company: String, desc: String, id: String, url: String, size: String, imageurl: String});
 
 
 // Routes
@@ -72,19 +72,19 @@ app.post('/addpattern', function(req, res){
 
 	var newPattern = new Pattern({
 		username: 'unicorn',
-		company: pattern.username,
-		name: pattern.name,
+		company: pattern.company,
+		desc: pattern.name,
 		id: pattern.id,
 		url: pattern.url,
 		size: pattern.size,
-		imageUrl: pattern.imageUrl
+		imageurl: pattern.imageurl
 	});
 	newPattern.save(function(err){
 		if(err) {
-			res.send(500, 'Error encountered attempting to save new pattern to database.')
+			res.send(500, 'Error encountered attempting to save new pattern to database.');
 		}
 		else {
-			res.send('Success!')
+			res.send(pattern);
 		}
 	});
 });
@@ -103,6 +103,12 @@ app.get('/profile/:username', function(req, res){
 	});
 });
 
+app.get('/getpatterns', function(req, res){
+	Pattern.find({}, function(err, patterns){
+		res.send(patterns);
+	});
+})
+
 app.get('/patterns', function(req, res){
 	//get patterns from database
 
@@ -114,8 +120,8 @@ app.get('/patterns', function(req, res){
 	
 });
 
-app.get('/stash', function(req, res){
-	res.render('stash');
+app.get('/fabrics', function(req, res){
+	res.render('fabrics');
 });
 
 http.createServer(app).listen(app.get('port'), function(){
