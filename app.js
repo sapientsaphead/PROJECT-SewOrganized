@@ -89,11 +89,17 @@ app.post('/addpattern', function(req, res){
 	});
 });
 
-
+app.post('/editpattern', function(req, res) {
+	//get pattern from database
+	var id = req.body;
+	Pattern.findOne({_id: id}, function(err, pattern){
+		res.send(pattern);
+	})
+})
 
 app.get('/profile/:username', function(req, res){
 	var username = req.params.username;
-	var applicant = User.findOne({username: username}, function (err, user) {
+	var activeuser = User.findOne({username: username}, function (err, user) {
 		if (user){
 			res.render('profile', {user: user});
 		}
@@ -111,13 +117,9 @@ app.get('/getpatterns', function(req, res){
 
 app.get('/patterns', function(req, res){
 	//get patterns from database
-
 	Pattern.find({}, function(err, patterns){
-		console.log('error', err, 'patterns', patterns);
-		
 		res.render('patterns', {patterns: patterns});
 	});
-	
 });
 
 app.get('/fabrics', function(req, res){
