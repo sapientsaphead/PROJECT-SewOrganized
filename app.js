@@ -94,24 +94,38 @@ app.get('/patterns', function(req, res){
 
 app.post('/addpattern', function(req, res){
 	var pattern = req.body;
-
-	var newPattern = new Pattern({
-		username: 'unicorn',
-		company: pattern.company,
-		desc: pattern.desc,
-		id: pattern.id,
-		url: pattern.url,
-		size: pattern.size,
-		imageurl: pattern.imageurl
-	});
-	newPattern.save(function(err){
-		if(err) {
-			res.send(500, 'Error encountered attempting to save new pattern to database.');
-		}
-		else {
-			res.send(pattern);
-		}
-	});
+	
+	if (pattern.patternId == 'undefined') {
+		console.log('hells yeah!');
+		var patternInfo = new Pattern({
+			username: 'unicorn',
+			company: pattern.company,
+			desc: pattern.desc,
+			id: pattern.id,
+			url: pattern.url,
+			size: pattern.size,
+			imageurl: pattern.imageurl
+		});
+		patternInfo.save(function(err, data){
+			if(err) {
+				res.send(500, 'Error encountered attempting to save new pattern to database.');
+			}
+			else {
+				res.send(data);
+			}
+		});	
+	}
+	else {
+		console.log('booyah!');
+		Pattern.findOneAndUpdate({_id: pattern.patternId}, {$set: {company: pattern.company, desc: pattern.desc, id: pattern.id, url: pattern.url, size: pattern.size, imageurl: pattern.imageurl}}, {}, function(err,data){
+			if(err) {
+				res.send(500, 'Error encountered attempting to save changes to database.');
+			}
+			else {
+				res.send(data);
+			}
+		});
+	}
 });
 
 app.post('/activepattern', function(req, res) {
