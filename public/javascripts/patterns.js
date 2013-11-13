@@ -28,7 +28,23 @@ $(document).ready(function(){
 			});
 		});
 	});
-
+	// Code to prepopulate for demo
+	$(document).on('click', '.addPatternLink', function(e){
+		e.preventDefault();
+		var dummyPattern = {
+			company: 'Vogue Patterns', 
+			desc: 'Vintage Misses\' Dress', 
+			size: 'AAX(4-6-8-10)', 
+			id: 'V2960', 
+			url: 'http://voguepatterns.mccall.com/v2960-products-8312.php?page_id=850', 
+			imageurl: 'http://voguepatterns.mccall.com/filebin/images/product_images/Add_2_Full/V2960.jpg'
+		}
+		
+		$('input').each(function(){
+			var keyname = $(this).attr('name');
+			$(this).val(dummyPattern[keyname]);
+		});
+	});
 		
     // Add or edit a pattern
 	$('.patternForm').on('click', '.submitButton',function(e){
@@ -44,7 +60,7 @@ $(document).ready(function(){
 		var patternId = that.find('.patternId').val();
 		console.log('my patternid', patternId);
 		if (patternId.length > 0) {
-			console.log('I am an existing pattern');
+			// Edit existing pattern
 			var editpattern = {patternId: patternId, company: company, desc: desc, size: size, id: id, url: url, imageurl: imageurl};			
 			$.post('/addpattern', editpattern, function(pattern){
 				//include error handling here
@@ -53,9 +69,9 @@ $(document).ready(function(){
 			});
 		}
 		else {
-			console.log('I am a new pattern');
+			// Create new pattern
 			var newpattern = {company: company, desc: desc, size: size, id: id, url: url, imageurl: imageurl};
-
+			
 			$.post('/addpattern', newpattern, function(pattern){
 				//include error handling here
 				$allpatterns.append(inputTemplate(pattern));
