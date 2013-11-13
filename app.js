@@ -32,7 +32,7 @@ if ('development' == app.get('env')) {
 
 //connect to MongoDB via Mongoose
 var mongoUrl = global.process.env.MONGOHQ_URL || 'mongodb://localhost/seworganized';
-mongoose.connect(mongoURL);
+mongoose.connect(mongoUrl);
 
 // Mongoose 
 var User = mongoose.model('User', { 
