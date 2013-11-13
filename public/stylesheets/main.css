@@ -1,9 +1,12 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
+html, body {
+  height: 100%;
+}
 a {
   color: #00B7FF;
+  padding: 5px;
 }
 /* GLOBAL STYLES
 -------------------------------------------------- */
@@ -73,12 +76,21 @@ footer > p {
   bottom:0;
 }
 
+.options {
+  height: 520px;
+}
+.row {
+  height: 520px;
+}
+
+
 /* CUSTOMIZE THE ROW
 -------------------------------------------------- */
 .row {
   padding-left: 50px;
   padding-right: 50px;
-  height: 520px;
+  /*height: 520px;*/
+
 }
 .container {
   padding-left: 0;
