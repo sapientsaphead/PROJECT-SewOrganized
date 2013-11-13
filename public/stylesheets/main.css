@@ -218,6 +218,8 @@ div.pattern {
   text-align: center;
 }
 /* Update modal style when screen is smaller*/
+/* This is not showing up as needed on mobile screens - need to break out
+the label from the input boxes so that we can have each on its own line*/
 @media (max-width: 768px) {
   body .modal {
     min-width: 495px;
@@ -228,10 +230,10 @@ div.pattern {
     min-width: 400px;
   }
   .form-field {
-    width: 210px;
+    width: 180px;
   }
   .input-label {
-    font-size: 12px;
+    font-size: 10px;
   }
 }
 
