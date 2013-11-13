@@ -1,0 +1,23 @@
+extends layout
+
+block content
+
+
+	div.why
+		p 
+			| Add your favorite Pinterest sewing inspiration board here. Simply provide the 
+			| information below and we will pull the pins for you.
+
+	div.input
+		form.pinterest-data
+			div.form-field-group
+				div.form-field-group
+					label.input-label Pinterest Username: 
+						input.form-field.pinterest-username(type="text" name="pinterest-username")
+				div.form-field-group
+					label.input-label Board Name: 
+						input.form-field.pinterest-boardname(type="text" name="pinterest-boardname")
+	div.results
+	
+
+	script(src="/javascripts/pinterest.js")
