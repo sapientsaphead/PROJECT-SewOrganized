@@ -1,47 +1,33 @@
 <script id="profile-results-template" type="text/x-handlebars-template">
         
-	<div class="row">
 
-		<div class="container">
-			<div class="display">
-				<div class="profileImage">
-					<img src='/images/'+{{user.username}}+'.jpg'>
-				</div>
-			</div>
-			<div class="display">
-				<div class="username">
-					<h2>{{capitalize(username)}}</h2>
-				</div>
-			</div>
-		<div class="container">
-			<div class="profile-info">
-				<div class="name">
-					<h2>
-						<span id="fname" class="editable-text">{{capitalize(user.fname)}}</span>
-						<span id="lname" class="editable-text">{{capitalize(user.lname)}}</span>
-					</h2>
-				</div>
-				<div class="city">
-					<h4> 
-						<span class="title">City </span>
-						<span id="city" class="editable-text">{{capitalize(user.city)}}</span>
-					</h4>
-				</div>
-				<div class="state">
-					<h4> 
-						<span class="title"> State </span>
-						<span id="state" class="editable-text">{{allCaps(user.state)}}</span>
-					</h4>
-				</div>
-				<div class="zipcode">
-					<h4> 
-						<span class="title"> Zip Code </span>
-						<span id="state" class="editable-text">{{user.zipcode}}</span>
-					</h4>
-				</div>
-			</div>
+	<div class="profile-info" data-userid=_id.toString() data-toggle="modal" data-target="#myModal">
+		<div class="name">
+			<h2>
+				<span id="fname" class="editable-text">{{fname}}</span>
+				<span id="lname" class="editable-text">{{lname}}</span>
+			</h2>
+		</div>
+		<div class="city">
+			<h4> 
+				<span class="title">City </span>
+				<span id="city" class="editable-text">{{city}}</span>
+			</h4>
+		</div>
+		<div class="state">
+			<h4> 
+				<span class="title"> State </span>
+				<span id="state" class="editable-text">{{state}}</span>
+			</h4>
+		</div>
+		<div class="zipcode">
+			<h4> 
+				<span class="title"> Zip Code </span>
+				<span id="state" class="editable-text">{{zipcode}}</span>
+			</h4>
 		</div>
 	</div>
+
 
 </script>
 

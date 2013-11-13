@@ -178,7 +178,8 @@ div.pattern {
   float: left;
   margin: 8px;
 }
-/* Patterns form styling */
+
+/* Modal form styling */
 .form-field-group {
   text-align: right;
 }
@@ -224,6 +225,42 @@ div.pattern {
 
 /* PROFILE STYLING
 -------------------------------------------------- */
-/*.profile-info {
+.profile-info {
+  margin-top: 0px;
+}
+
+/* FABRICS STYLING
+-------------------------------------------------- */
+div.fabrics {
   display: block;
-}*/
+}
+div.fabricForm {
+  display: inline-block;
+  overflow: hidden;
+}
+div.addFabric {
+  position: relative;
+}
+div.allFabrics {
+  text-align: center;
+}
+.fabric-image {
+  display: block;
+}
+.fabric-item {
+  font-size: 12px;
+}
+img.fabric-image-thumbnail {
+  width: 115px;
+  border: 1px solid grey;
+}
+a.addFabricLink {
+  color: white;
+}
+div.fabric {
+  width: 150px;
+  text-align: center;
+  float: left;
+  margin: 8px;
+}
+

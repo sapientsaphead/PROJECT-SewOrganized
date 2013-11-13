@@ -1,0 +1,54 @@
+extends layout
+
+block content
+
+	<!-- Example row of columns -->
+
+	div.row
+		div.fabrics
+			div.addfabric.display
+				a.addfabricLink
+					<!-- Button trigger modal -->
+					button.addfabricButton.btn.btn-primary(data-toggle="modal" data-target="#myModal") Add a fabric
+
+			div.fabricForm
+				<!-- Modal -->
+				div.modal.fade#myModal(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+					div.modal-dialog
+						div.modal-content
+							div.modal-header
+								button(type="button" class="close" data-dismiss="modal" aria-hidden="true") &times;
+								h4.modal-title#myModalLabel Fabric Information
+							div.modal-body
+								form.newfabric
+									div.form-field-group
+										label.input-label Company: 
+											input.form-field.company(type="text" name="company")
+									div.form-field-group
+										label.input-label Collection: 
+											input.form-field.fcollection(type="text" name="fcollection")
+									div.form-field-group
+									div.form-field-group
+										label.input-label Description: 
+											input.form-field.desc(type="text" name="desc")
+									div.form-field-group
+										label.input-label Width: 
+											input.form-field.width(type="text" name="width")
+									div.form-field-group
+										label.input-label Fabric Content: 
+											input.form-field.fcontent(type="text" name="fcontent")
+									div.form-field-group
+										label.input-label Washing Instructions: 
+											input.form-field.fwash(type="text" name="fwash")
+									div.form-field-group
+										label.input-label ImageURL: 
+											input.form-field.imageurl(type="text" name="imageurl")
+									input.form-field.fabricId(type="hidden" name="_id")	
+							div.modal-footer
+								button.closeButton(type="button" class="btn btn-default" data-dismiss="modal") Close
+								button.deleteButton(type="button" class="btn btn-primary") Delete fabric
+								button.submitButton(type="button" class="btn btn-primary") Save changes
+			div.allfabrics.display
+				include fabricstemplate.html
+
+	script(src="/javascripts/fabrics.js")

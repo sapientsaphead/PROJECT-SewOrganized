@@ -10,65 +10,68 @@ block content
 	-	return str.charAt(0).toUpperCase() + str.slice(1);
 	-}
 
-	//- script= "var user='"+user.toObject()+"'"
-	script var user= #{JSON.stringify(user.toObject())}
-	include profiletemplate.html
-
-	//- div.row
-	//- 	div.container
-	//- 		div.display
-	//- 			div.profileImage
-	//- 				img(src='/images/#{user.username}.jpg')
-	//- 		div.display
-	//- 			div.username
-	//- 				h2 #{capitalize(user.username)}
-	//- 	div.container
-	//- 		div.display.profile-info
-	//- 			div.name
-	//- 				h2 #{capitalize(user.fname)} #{capitalize(user.lname)}
-	//- 			div.city
-	//- 				h4 
-	//- 					span.title City 
-	//- 					| #{capitalize(user.city)}
-	//- 			div.state
-	//- 				h4 
-	//- 					span.title State 
-	//- 					| #{allCaps(user.state)}
-	//- 			div.zipcode
-	//- 				h4 
-	//- 					span.title Zip Code 
-	//- 					| #{user.zipcode}
-	//- 	div.container
-	//- 		<!-- Modal -->
-	//- 		div.modal.fade#myModal(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
-	//- 			div.modal-dialog
-	//- 				div.modal-content
-	//- 					div.modal-header
-	//- 						button(type="button" class="close" data-dismiss="modal" aria-hidden="true") &times;
-	//- 						h4.modal-title#myModalLabel Profile Information
-	//- 					div.modal-body
-	//- 						form.newPattern
-	//- 							div.form-field-group
-	//- 								label.input-label Username: 
-	//- 									input.form-field.username(type="text" name="company")
-	//- 							div.form-field-group
-	//- 								label.input-label First name: 
-	//- 									input.form-field.fname(type="text" name="desc")
-	//- 							div.form-field-group
-	//- 								label.input-label Last name: 
-	//- 									input.form-field.lname(type="text" name="id")
-	//- 							div.form-field-group
-	//- 								label.input-label City: 
-	//- 									input.form-field.city(type="text" name="size")
-	//- 							div.form-field-group
-	//- 								label.input-label CO: 
-	//- 									input.form-field.state(type="text" name="url")
-	//- 							div.form-field-group
-	//- 								label.input-label Zip Code: 
-	//- 									input.form-field.zipcode(type="text" name="imageurl")
-	//- 							input.form-field.userId(type="hidden" name="_id")	
-	//- 					div.modal-footer
-	//- 						button.closeButton(type="button" class="btn btn-default" data-dismiss="modal") Close
-	//- 						button.submitButton(type="button" class="btn btn-primary") Save changes
+	script var user= #{user};
 	
+
+	div.row
+		div.container
+			div.display
+				div.profileImage
+					img(src='/images/#{user.username}.jpg')
+			div.display
+				div.username
+					h2 #{capitalize(user.username)}
+		div.container#profile-container
+			div.display.profile-info(data-userid=user._id.toString() data-toggle="modal" data-target="#myModal")
+				div.name
+					h2 
+						span.editable-text.fname #{capitalize(user.fname)} 
+						span.editable-text.lname #{capitalize(user.lname)}
+				div.city
+					h4 
+						span.title City 
+						span.editable-text.city #{capitalize(user.city)}
+				div.state
+					h4 
+						span.title State 
+						span.editable-text.state #{allCaps(user.state)}
+				div.zipcode
+					h4 
+						span.title Zip Code 
+						span.editable-text.zipcode #{user.zipcode}
+				
+		div.container
+			<!-- Modal -->
+			div.modal.fade#myModal(tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+				div.modal-dialog.editUser
+					div.modal-content
+						div.modal-header
+							button(type="button" class="close" data-dismiss="modal" aria-hidden="true") &times;
+							h4.modal-title#myModalLabel Profile Information
+						div.modal-body
+							form.editUserInfo
+								//- div.form-field-group
+								//- 	label.input-label Username: 
+								//- 		input.form-field.username(type="text" name="company")
+								div.form-field-group
+									label.input-label First name: 
+										input.form-field.fname(type="text" name="fname")
+								div.form-field-group
+									label.input-label Last name: 
+										input.form-field.lname(type="text" name="lname")
+								div.form-field-group
+									label.input-label City: 
+										input.form-field.city(type="text" name="city")
+								div.form-field-group
+									label.input-label State: 
+										input.form-field.state(type="text" name="state")
+								div.form-field-group
+									label.input-label Zip Code: 
+										input.form-field.zipcode(type="text" name="zipcode")
+								input.form-field.userId(type="hidden" name="_id")	
+						div.modal-footer
+							button.closeButton(type="button" class="btn btn-default" data-dismiss="modal") Close
+							button.submitButton(type="button" class="btn btn-primary") Save changes
+		
+		include profiletemplate.html
 	script(src="/javascripts/profile.js")
