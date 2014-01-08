@@ -5,27 +5,64 @@
   -webkit-margin-after: 0em;
   -webkit-padding-start: 0px; }
 
+/* Copyright &copy; Andrew Paglinawan 2008 All rights reserved Copyright (c) Andrew Paglinawan, 2008. All rights reserved. */
 @font-face {
-  font-family: 'Quicksand Dash-Regular';
-  src: local("Quicksand Dash-Regular"), url("quicksand.dash-regular.otf") format("opentype"); }
+  font-family: 'Quicksand Dash';
+  src: local("Quicksand Dash"), url("quicksand_dash.otf") format("opentype"); }
 
 body {
   background: white url("../images/kytalpa-sewing-bckgrnd.jpeg") repeat;
-  font-family: 'Quicksand Dash-Regular', Helvetica, sans-serif;
-  text-align: center;
+  font-family: Georgia, serif;
+  text-align: left;
   min-height: 240px;
   min-width: 320px; }
 
 /* Variables */
 /* General Styles */
 a {
-  color: #47D667;
-  text-decoration: none;
-  font-size: 10px; }
+  color: #47d667;
+  text-decoration: none; }
+
+.center {
+  text-align: center; }
+
+ul.unstyled li {
+  list-style-type: none; }
 
 ul.horizontal li {
   display: inline-block;
   margin-right: 1em; }
+
+.float-left {
+  float: left; }
+
+.float-right {
+  float: right;
+  text-align: right; }
+
+.menu-container {
+  position: relative;
+  top: 75px; }
+
+.container {
+  position: relative;
+  top: 85px; }
+
+.display {
+  /*text-align: center;*/
+  background-color: rgba(250, 250, 250, 0.95);
+  max-width: 450px;
+  margin-left: 25px;
+  margin-right: 25px;
+  padding: 10px; }
+
+.column1 {
+  float: left;
+  width: 50%; }
+
+.column2 {
+  float: right;
+  width: 50%; }
 
 /* Header & Footer Styles */
 header, footer {
@@ -33,53 +70,48 @@ header, footer {
   /* Needed to anchor to top/bottom of page */
   float: left;
   /* Needed to anchor to top/bottom of page */
+  height: 75px;
   background-color: #510fad;
-  /* box-shadow:  0px 2px 2px #888, 0px -2px 2px #888;*/
+  background: #510fad;
+  box-shadow: 0px 2px 2px #888, 0px -2px 2px #888;
   z-index: 999999;
   position: fixed; }
 
 header {
-  top: 0; }
-
-header:after {
-  content: " ";
-  display: block;
-  position: relative;
-  bottom: -15px;
-  height: 15px;
-  background: linear-gradient(-45deg, transparent 75%, #510fad 75%) 0 50%, linear-gradient(45deg, transparent 75%, #510fad 75%) 0 50%;
-  background-repeat: repeat-x;
-  background-size: 15px 15px, 15px 15px; }
-
-header > .wrap {
-  border-bottom: 1px white dashed; }
+  top: 0;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+  border-bottom: 2px #fff dashed;
+  box-shadow: 0 0 0 4px #510fad, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+  text-shadow: -1px -1px #000; }
 
 footer {
-  bottom: 0; }
-
-footer:before {
-  content: " ";
-  display: block;
-  position: relative;
-  top: -15px;
-  height: 15px;
-  background: linear-gradient(45deg, #510fad 25%, transparent 25%) 0 50%, linear-gradient(-45deg, #510fad 25%, transparent 25%) 0 50%;
-  background-repeat: repeat-x;
-  background-size: 15px 15px, 15px 15px; }
-
-footer > .wrap {
-  border-top: 1px white dashed; }
-
-.wrap {
-  position: relative;
-  margin: 0 auto;
-  width: 100%; }
+  bottom: 0;
+  padding-top: 20px;
+  margin-top: 10px;
+  border-top: 2px #fff dashed;
+  box-shadow: 0 0 0 4px #510fad, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+  text-shadow: -1px -1px #333; }
 
 /* Header Only Styles */
 h1#title {
-  font-size: 50px;
+  font-family: 'Quicksand Dash', Helvetica, sans-serif;
+  font-size: 40px;
+  color: #fff;
+  padding: 15px 5px;
+  margin: 0; }
+
+/* Footer Only Styles */
+footer {
+  padding-bottom: .25em; }
+
+ul.footer-links, ul.footer-links a {
+  padding-top: .25em;
   color: white;
-  padding: 15px 5px; }
+  font-size: 12px; }
+
+ul.image-credit, ul.image-credit a {
+  color: grey; }
 
 /* Lightbox */
 .background {
@@ -95,7 +127,7 @@ h1#title {
 .box {
   background-color: white;
   position: fixed;
-  width: 80%;
+  width: 432px;
   height: 60%;
   margin: auto;
   top: 0;
@@ -104,32 +136,52 @@ h1#title {
   bottom: 0;
   border-radius: 10px; }
 
+/* greater than 862px = width: 432px;
+    less than 861px = width: 268px;
+*/
 .text-box {
   position: absolute;
   top: inherit;
   bottom: inherit;
   margin: 1em;
   padding: 1em;
-  border: 1px black dashed;
+  border: 2px black dashed;
   border-radius: 10px;
   -moz-border-radius: 10px; }
 
 .text {
-  display: table-cell;
-  vertical-align: middle; }
+  padding-top: 10%;
+  padding-bottom: 10%; }
 
 h3, p {
   margin-bottom: 1em; }
 
-/* Footer Only Styles */
-footer {
-  padding-bottom: .25em; }
+a#facebook {
+  text-align: right; }
 
-ul.footer-links {
-  color: white;
-  font-size: 12px; }
+a#facebook > img {
+  margin-top: 1em; }
 
-ul.image-credit, ul.image-credit a {
-  color: grey;
-  font-size: 0.625px;
-  text-decoration: none; }
+/* Modal Styles */
+/* Modals */
+/* Base modal */
+/* Padding applied to the modal body*/
+/* Modal backdrop background color*/
+/* Modal header and footer */
+/* Padding applied to the modal title */
+/* Modal title line-height */
+/* Modal header border color */
+/* Modal footer border color */
+/* Modal content */
+/* Background color of modal content area */
+/* Modal content border color */
+/* Account Styles */
+ul.menu {
+  display: block;
+  background: white;
+  margin-bottom: 5px; }
+
+li.option {
+  padding: 5px 5px; }
+
+/* Profile */

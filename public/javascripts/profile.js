@@ -33,16 +33,16 @@ $(document).ready(function(){
  
     var that = $(this).closest('div.modal-content').find('form.editUserInfo');
     console.log('that', that);
-    var fname = that.find('.fname').val();
-    var lname = that.find('.lname').val();
+    var firstname = that.find('.firstname').val();
+    var lastname = that.find('.lastname').val();
     var city = that.find('.city').val();
     var state = that.find('.state').val();
     var zipcode = that.find('.zipcode').val();
     var userid = that.find('.userId').val();
     var edituser = {
       userid: userid, 
-      fname: fname, 
-      lname: lname, 
+      firstname: firstname, 
+      lastname: lastname, 
       city: city, 
       state: state, 
       zipcode: zipcode
