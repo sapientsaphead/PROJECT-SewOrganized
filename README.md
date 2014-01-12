@@ -1,4 +1,4 @@
-### Sew Organized
+### [Sew Organized](http://seworganized.herokuapp.com/)
 
 #### Independent Project RefactorU
 
@@ -15,8 +15,6 @@ Sew Organized is a web application designed to help sewing enthusiasts keep trac
 * Inventory
 	* Groups: Patterns, Books & Magazines, Fabrics
 	* Save these as collections in the database
-* Meetup API
-	* Suggest Meetups related to sewing that are nearby based on profile zipcode
 
 #### Phase II
 
@@ -30,5 +28,5 @@ Sew Organized is a web application designed to help sewing enthusiasts keep trac
 
 * Image Uploads
 * Wishlists
-* Link pattern to full information on company website
+* Link pattern to full information on company website (website scraping?)
 	* Can see measurements, suggested fabrics and required notions
