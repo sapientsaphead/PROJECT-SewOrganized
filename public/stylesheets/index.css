@@ -5,11 +5,6 @@
   -webkit-margin-after: 0em;
   -webkit-padding-start: 0px; }
 
-/* Copyright &copy; Andrew Paglinawan 2008 All rights reserved Copyright (c) Andrew Paglinawan, 2008. All rights reserved. */
-@font-face {
-  font-family: 'Quicksand Dash';
-  src: local("Quicksand Dash"), url("quicksand_dash.otf") format("opentype"); }
-
 body {
   background: white url("../images/kytalpa-sewing-bckgrnd.jpeg") repeat;
   font-family: Georgia, serif;
@@ -20,18 +15,24 @@ body {
 /* Variables */
 /* General Styles */
 a {
-  color: #47d667;
+  color: #cccccc;
   text-decoration: none; }
 
 .center {
   text-align: center; }
 
+/*ul li a {
+  display:block;
+}*/
 ul.unstyled li {
   list-style-type: none; }
 
 ul.horizontal li {
   display: inline-block;
-  margin-right: 1em; }
+  margin-right: 0.25em; }
+
+ul.horizontal li:last-child {
+  border-right: none; }
 
 .float-left {
   float: left; }
@@ -41,8 +42,13 @@ ul.horizontal li {
   text-align: right; }
 
 .menu-container {
-  position: relative;
-  top: 75px; }
+  position: absolute;
+  top: 38px;
+  right: 0; }
+
+.menu-container a {
+  color: #cccccc;
+  text-decoration: none; }
 
 .container {
   position: relative;
@@ -64,55 +70,72 @@ ul.horizontal li {
   float: right;
   width: 50%; }
 
+.space {
+  margin-left: 3px; }
+
 /* Header & Footer Styles */
 header, footer {
   width: 100%;
   /* Needed to anchor to top/bottom of page */
   float: left;
   /* Needed to anchor to top/bottom of page */
-  height: 75px;
-  background-color: #510fad;
-  background: #510fad;
+  background-color: #543e9d;
+  background: #543e9d;
   box-shadow: 0px 2px 2px #888, 0px -2px 2px #888;
   z-index: 999999;
   position: fixed; }
 
 header {
   top: 0;
+  height: 75px;
   padding-bottom: 20px;
   margin-bottom: 10px;
-  border-bottom: 2px #fff dashed;
-  box-shadow: 0 0 0 4px #510fad, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
-  text-shadow: -1px -1px #000; }
+  border-bottom: 2px dashed #fff;
+  box-shadow: 0 0 0 10px #543e9d, 2px 1px 6px 4px rgba(10, 10, 0, 0.5); }
 
 footer {
   bottom: 0;
+  height: 50px;
   padding-top: 20px;
   margin-top: 10px;
-  border-top: 2px #fff dashed;
-  box-shadow: 0 0 0 4px #510fad, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+  border-top: 2px dashed #fff;
+  box-shadow: 0 0 0 10px #543e9d, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
   text-shadow: -1px -1px #333; }
 
 /* Header Only Styles */
 h1#title {
-  font-family: 'Quicksand Dash', Helvetica, sans-serif;
-  font-size: 40px;
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 36px;
   color: #fff;
   padding: 15px 5px;
-  margin: 0; }
+  margin: 0;
+  text-shadow: -1px -1px #000; }
+
+ul.menu li {
+  color: #cccccc;
+  border-right: 2px solid #888;
+  margin-right: 0;
+  font-weight: bold; }
 
 /* Footer Only Styles */
 footer {
   padding-bottom: .25em; }
 
 ul.footer-links, ul.footer-links a {
+  padding-left: 5px;
   padding-top: .25em;
   color: white;
   font-size: 12px; }
 
 ul.image-credit, ul.image-credit a {
-  color: grey; }
+  color: #999; }
 
+/*footer ul li {
+  border-right: 2px solid #888;
+}
+footer ul li:last-child {
+  border-right: none;
+}*/
 /* Lightbox */
 .background {
   background-color: rgba(102, 102, 102, 0.8);
@@ -125,29 +148,19 @@ ul.image-credit, ul.image-credit a {
   overflow: auto; }
 
 .box {
+  text-align: center;
   background-color: white;
   position: fixed;
-  width: 432px;
-  height: 60%;
+  width: 475px;
+  height: 300px;
   margin: auto;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  border-radius: 10px; }
-
-/* greater than 862px = width: 432px;
-    less than 861px = width: 268px;
-*/
-.text-box {
-  position: absolute;
-  top: inherit;
-  bottom: inherit;
-  margin: 1em;
-  padding: 1em;
+  border-radius: 5px;
   border: 2px black dashed;
-  border-radius: 10px;
-  -moz-border-radius: 10px; }
+  box-shadow: 0 0 0 10px white, 2px 1px 6px 4px rgba(10, 10, 0, 0.5); }
 
 .text {
   padding-top: 10%;
@@ -178,10 +191,16 @@ a#facebook > img {
 /* Account Styles */
 ul.menu {
   display: block;
-  background: white;
   margin-bottom: 5px; }
 
 li.option {
-  padding: 5px 5px; }
+  padding: 0px 5px; }
 
 /* Profile */
+.profileImage {
+  text-align: center; }
+
+.title {
+  margin-right: 10px; }
+
+/* Media Queries */

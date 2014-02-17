@@ -12,33 +12,28 @@ html(lang='en')
 
 	body
 		header
-			h1#title Sew Organized
-		
-		div.menu-container
-			ul.menu.unstyled.horizontal
-				a(href='/profile/')
-					li.option
-						h2 Profile
+			.contain
+				h1#title Sew Organized
+			
+				div.menu-container
+					ul.menu.unstyled.horizontal
+						li.option
+							a(href='/profile/') Profile
 
-				a(href='/measurements')
-					li.option
-						h2 Measurements	
+						li.option
+							a(href='/measurements')	Measurements
 
-				a(href='/projects')
-					li.option
-						h2 Projects	
+						li.option
+							a(href='/projects')	Projects
 
-				a(href='/patterns')
-					li.option
-						h2 Patterns	
+						li.option	
+							a(href='/patterns') Patterns
 
-				a(href='/fabrics')
-					li.option
-						h2 Fabrics	
-
-				a(href='/library')
-					li.option
-						h2 Library
+						li.option
+							a(href='/fabrics') Fabrics
+						
+						li.option
+							a(href='/library') Library
 
 		block content
 
@@ -52,7 +47,7 @@ html(lang='en')
 					a(href="/contact") Contact
 				li 
 					a(href="/privacy") Privacy
-				li &copy; 2013 Sew Organized
+				li.space &copy;2014 Sew Organized
 			ul.horizontal.footer-links.image-credit.float-right
 				li Image Credits: 
 					<!-- HTML Credit Code for Can Stock Photo-->

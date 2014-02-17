@@ -36,6 +36,8 @@ app.listen(3000);
 var mongoUrl = global.process.env.MONGOHQ_URL || 'mongodb://localhost/seworganized';
 mongoose.connect(mongoUrl);
 
+// mongoose.connect( 'mongodb://localhost/seworganized', function(err) { if (err) console.log(err); } );
+
 // Mongoose User Model
 var User = mongoose.model('User', { 
 	facebookID: Number,
@@ -43,9 +45,10 @@ var User = mongoose.model('User', {
 	email: String,
 	firstname: String,
 	lastname: String,
-	gender: String,
-	location: String, 
+	gender: String, 
 	created: String,
+	city: String,
+	state: String
 });
 
 if (!User.schema.options.toObject) User.schema.options.toObject = {}
