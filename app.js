@@ -8,7 +8,11 @@ var path = require('path');
 var mongoose = require('mongoose');
 var config = require('./oauth.js')
 var passport = require('passport')
+
+var UserModel = require('./models/userModel');
+
 var FacebookStrategy = require('passport-facebook').Strategy;
+
 
 var app = express();
 
@@ -38,24 +42,6 @@ mongoose.connect(mongoUrl);
 
 // mongoose.connect( 'mongodb://localhost/seworganized', function(err) { if (err) console.log(err); } );
 
-// Mongoose User Model
-var User = mongoose.model('User', { 
-	facebookID: Number,
-	username: String,
-	email: String,
-	firstname: String,
-	lastname: String,
-	gender: String, 
-	created: String,
-	city: String,
-	state: String
-});
-
-if (!User.schema.options.toObject) User.schema.options.toObject = {}
-
-User.schema.options.toObject.transform = function (doc, ret, options) {
-	ret._id = ret._id.toString();
-}
 
 // config
 passport.use(new FacebookStrategy({

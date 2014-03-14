@@ -1,0 +1,116 @@
+/* Base Styles */
+#menu-container,
+#menu-container ul,
+#menu-container li,
+#menu-container a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  font-weight: normal;
+  text-decoration: none;
+}
+#menu-container ul {
+  display: inline-block;
+  float: right;
+}
+#menu-container:before,
+#menu-container:after {
+  content: '';
+  display: table;
+}
+#menu-container:after {
+  clear:both;
+}
+@media all and (max-width: 480px) {
+  #menu-container > ul {
+    max-height: 32px;
+    overflow: hidden;
+    -webkit-transition: max-height 0.5s;
+    transition: max-height 0.5s;
+  }
+  #menu-container.expand ul {
+    max-height: 900px;
+  }
+}
+#menu-container > ul > li {
+  margin-right: 10px;
+}
+#menu-container > ul > li.mobile {
+  display: none;
+}
+
+@media all and (max-width: 480px) {
+  #menu-container > ul > li {
+    display: block;
+    float: none;
+  }
+  #menu-container > ul > li.mobile {
+    display: block;
+  }
+  #menu-container > ul > li.mobile i {
+    float: right;
+    font-style: normal;
+  }
+}
+#menu-container > ul > li:last-child {
+  border-right: 0 none;
+}
+#menu-container > ul > li:last-child ul {
+  left: auto;
+  right: 0;
+}
+#menu-container > ul > li.mobile {
+  border-right: 0 none;
+}
+#menu-container > ul > li > a {
+  margin: 0 0 2px 0;
+  font-size: 12px;
+  display: block;
+  color: #ffffff;
+  text-shadow: 0 1px 1px #000;
+}
+#menu-container > ul > li > a > span {
+  display: block;
+  padding: 6px 10px;
+  font-weight: bold;
+}
+#menu-container > ul > li > a:hover {
+  text-decoration: none;
+}
+#menu-container > ul > li.active {
+  border-bottom: none;
+}
+#menu-container > ul > li.active > a {
+  color: #fff;
+  text-shadow: 0 1px 1px #000;
+}
+/* Sub menu */
+#menu-container ul ul {
+  padding: 5px 12px;
+  display: none;
+  position: absolute;
+  top: 33px;
+  left: 0;
+  width: 200px;
+  z-index: 1;
+}
+@media all and (max-width: 480px) {
+  #menu-container ul ul {
+    position: relative;
+    top: 0;
+    width: 100%;
+  }
+}
+#menu-container ul ul li {
+  padding: 3px 0;
+}
+#menu-container ul ul a {
+  color: #999999;
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+}
+#menu-container ul ul a:hover {
+  color: #444444;
+}

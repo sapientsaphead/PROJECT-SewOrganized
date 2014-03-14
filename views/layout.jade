@@ -12,46 +12,46 @@ html(lang='en')
 
 	body
 		header
-			.contain
+			.contain#header
 				h1#title Sew Organized
-			
-				div.menu-container
+				
+				div#cssmenu
 					ul.menu.unstyled.horizontal
-						li.option
-							a(href='/profile/') Profile
+						//- li.profile
+						//- 	img(src="https://graph.facebook.com/"+ user.username +"/picture?width=200&height=200")
+						li.last
+							a(href='/about') About
+						li.has-sub 
+							a(href='#') Collections
+							ul.sub-menu
+								li.hide
+									a(href='/projects')	Projects
 
-						li.option
-							a(href='/measurements')	Measurements
+								li.hide
+									a(href='/patterns') Patterns
 
-						li.option
-							a(href='/projects')	Projects
+								li.hide
+									a(href='/fabrics') Fabrics
 
-						li.option	
-							a(href='/patterns') Patterns
-
-						li.option
-							a(href='/fabrics') Fabrics
-						
-						li.option
-							a(href='/library') Library
+								li.hide
+									a(href='/measurements') Measurements
+								
+								li.hide.last
+									a(href='/library') Library
+						li
+							a(href='/profile') Profile
+						li.active
+							a(href='/') Home
+						li.mobile
+							a(href='#') Menu &#9776;
 
 		block content
 
 		footer
-			ul.horizontal.footer-links.float-left
-				li 
-					a(href="/") Home
-				li 
-					a(href="/about") About
-				li 
-					a(href="/contact") Contact
-				li 
-					a(href="/privacy") Privacy
-				li.space &copy;2014 Sew Organized
-			ul.horizontal.footer-links.image-credit.float-right
-				li Image Credits: 
-					<!-- HTML Credit Code for Can Stock Photo-->
-					a(href="http://www.canstockphoto.com") &copy; Can Stock Photo / kytalpa
+			ul.copyright
+				li Copyright &copy;2014 Debra Zapata / All rights reserved
+		//- Image Credits
+		//- ©Can Stock Photo / kytalpa
 		
 
 		script(language="javascript", src="http://code.jquery.com/jquery-1.10.2.min.js")

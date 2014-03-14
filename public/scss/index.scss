@@ -5,8 +5,9 @@
   -webkit-margin-after: 0em;
   -webkit-padding-start: 0px;
 }
+/*@import 'menu';*/
 
-body{
+body {
   background: white url('../images/kytalpa-sewing-bckgrnd.jpeg') repeat;
   font-family: Georgia, serif;
   text-align: left;
@@ -15,56 +16,162 @@ body{
 }
 
 /* Variables */
+$base-color: #543e9d;
 
 $nav-color: #543e9d;
+$nav-highlight: #8771ce;
+$nav-darker: #4c4076;
 $highlight-color: #47D667;
 $link-color: #ccc;
 
 
-/* General Styles */
-a {
-  color: $link-color;
+/* Menu Styles */
+/* begin code from cssmenu */
+#cssmenu {
+  float:right;
+}
+#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a {
+  padding: 0;
+  margin: 0;
+  line-height: 1.25;
+  font-size: 16px;
+  color: #ffffff;
+  -webkit-transition: all ease .3s;
+  -o-transition: all ease .3s;
+  -moz-transition: all ease .3s;
+  -ms-transition: all ease .3s;
+  transition: all ease .3s;
+}
+#cssmenu:before,
+#cssmenu:after,
+#cssmenu > ul:before,
+#cssmenu > ul:after {
+  content: '';
+  display: table;
+}
+#cssmenu:after,
+#cssmenu > ul:after {
+  clear: both;
+}
+#cssmenu a {
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+#cssmenu ul {
+  background: $base-color;
+  /*border-radius: 3px;
+  border: 1px solid darken($base-color, 5%);
+  -webkit-box-shadow: 0 1px 2px rgba(2, 2, 2, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  -o-box-shadow: 0 1px 2px rgba(2, 2, 2, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  -moz-box-shadow: 0 1px 2px rgba(2, 2, 2, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  -ms-box-shadow: 0 1px 2px rgba(2, 2, 2, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 1px 2px rgba(2, 2, 2, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.15);*/
+}
+#cssmenu ul > li {
+  float: right;
+  list-style: none;
+}
+#cssmenu ul > li > a {
+  display: block;
   text-decoration: none;
+  padding: 15px 44px;
+  position: relative;
 }
-.center {
-  text-align: center;
+#cssmenu ul > li > a:hover {
+  background: #2d4373;
+  -webkit-box-shadow: inset 0 0 1px #1e2e4f;
+  -o-box-shadow: inset 0 0 1px #1e2e4f;
+  -moz-box-shadow: inset 0 0 1px #1e2e4f;
+  -ms-box-shadow: inset 0 0 1px #1e2e4f;
+  box-shadow: inset 0 0 1px #1e2e4f;
+  -webkit-transition: all ease .3s;
+  -o-transition: all ease .3s;
+  -moz-transition: all ease .3s;
+  -ms-transition: all ease .3s;
+  transition: all ease .3s;
 }
-/*ul li a {
-  display:block;
+#cssmenu ul > li > a:hover:before {
+  content: '';
+  z-index: 2;
+  position: absolute;
+  border: 1px solid white;
+  border-top: 0;
+  border-bottom: 0;
+  border-right: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -1px;
+  opacity: .2;
+}
+#cssmenu ul > li > a:hover:after {
+  content: '';
+  z-index: 2;
+  position: absolute;
+  border: 1px solid white;
+  border-top: 0;
+  border-bottom: 0;
+  border-left: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: -1px;
+  opacity: .2;
+}
+#cssmenu > ul > li > ul {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+#cssmenu > ul > li:hover > ul {
+  opacity: 1;
+  visibility: visible;
+  position: absolute;
+  border-radius: 0 0 3px 3px;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  box-shadow: none;
+}
+#cssmenu > ul > li > ul {
+  width: 180px;
+  position: absolute;
+}
+#cssmenu > ul > li > ul > li {
+  float: none;
+  position: relative;
+}
+/*#cssmenu > ul > li > ul > li > ul {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
 }*/
-ul.unstyled li {
-  list-style-type: none;
-}
-ul.horizontal li {
-  display: inline-block;
-  margin-right: 0.25em;
-}
-ul.horizontal li:last-child {
-  border-right: none;
+/*#cssmenu > ul > li > ul > li:hover > ul {
+  opacity: 1;
+  visibility: visible;
+  position: absolute;
+}*/
+/*#cssmenu > ul > li > ul > li > ul {
+  left: 200px;
+  top: 1px;
+  width: 200px;
+}*/
+/*#cssmenu > ul > li > ul > li > ul > li {
+  float: none;
+}*/
+/* end code from <a href="http://cssmenumaker.com" title="Drop Down Menus">Drop Down Menu by CSSMenuMaker.com</a>*/
+#cssmenu > ul > li.mobile {
+  display: none;
 }
 
-.float-left {
-  float: left;
-}
-.float-right {
-  float: right;
-  text-align: right;
-}
-.menu-container {
-  position: absolute;
-  top: 38px;
-  right: 0;
-}
-.menu-container a {
-  color: $link-color;
-  text-decoration: none;
-}
 .container {
   position: relative;
   top: 85px;
 }
 .display {
-  /*text-align: center;*/
   background-color: rgba(250, 250, 250, .95);
   max-width: 450px;
   margin-left: 25px;
@@ -79,74 +186,68 @@ ul.horizontal li:last-child {
   float: right;
   width: 50%;
 }
-.space {
-  margin-left: 3px;
-}
+
 
 /* Header & Footer Styles */
 header, footer {
   width: 100%; /* Needed to anchor to top/bottom of page */
   float: left; /* Needed to anchor to top/bottom of page */
-  background-color: $nav-color;
-  background: $nav-color;
+  background-color: $base-color;
+  background: $base-color;
   box-shadow:  0px 2px 2px #888, 0px -2px 2px #888;
   z-index: 999999;
   position: fixed;
 }
+
+
+/* Header Only Styles */
 header {
   top: 0;
-  height: 75px;
-  padding-bottom: 20px;
+  height: 50px;
+  /*padding-bottom: 20px;
   margin-bottom: 10px;
   border-bottom: 2px dashed #fff;
-  box-shadow: 0 0 0 10px $nav-color, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
-  
+  box-shadow: 0 0 0 10px $nav-color, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);*/
 }
+#header {
+  background-color: $nav-color;
+}
+h1#title {
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 24px;
+  color: #fff;
+  padding: 7.5px 5px;
+  margin: 0;
+  text-shadow: -1px -1px #000;
+  float: left;
+}
+.contain:before,
+.contain:after {
+  content: ' '; /* 1 */
+  display: table; /* 2 */
+}
+.contain:after {
+    clear: both;
+}
+
+
+/* Footer Only Styles */
 footer {
   bottom: 0;
   height: 50px;
   padding-top: 20px;
   margin-top: 10px;
-  border-top: 2px dashed #fff;
-  box-shadow: 0 0 0 10px $nav-color, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+ /* border-top: 2px dashed #fff;
+  box-shadow: 0 0 0 10px $nav-color, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);*/
   text-shadow: -1px -1px #333;
 }
-
-/* Header Only Styles */
-h1#title {
-  font-family: 'Helvetica Neue', Helvetica, sans-serif;
-  font-size: 36px;
-  color: #fff;
-  padding: 15px 5px;
-  margin: 0;
-  text-shadow: -1px -1px #000;
-}
-ul.menu li {
-  color: $link-color;
-  border-right: 2px solid #888;
-  margin-right: 0;
-  font-weight: bold;
-}
-
-/* Footer Only Styles */
-footer {
-  padding-bottom: .25em;
-}
-ul.footer-links, ul.footer-links a {
+ul.copyright {
   padding-left: 5px;
-  padding-top: .25em;
   color: white;
   font-size: 12px;
 }
-ul.image-credit, ul.image-credit a {
-  color: #999;
-}
-/*footer ul li {
-  border-right: 2px solid #888;
-}
-footer ul li:last-child {
-  border-right: none;
-}*/
+
+
 
 /* Lightbox */
 .background{
@@ -195,9 +296,6 @@ a#facebook > img {
 ul.menu {
   display: block;
   margin-bottom: 5px;
-}
-li.option{
-  padding: 0px 5px;
 }
 
 /* Profile */
